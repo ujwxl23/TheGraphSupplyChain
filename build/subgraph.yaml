@@ -1,0 +1,27 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: SupplyChain
+    network: mumbai
+    source:
+      address: "0x8fCF04AB33c7C3850c1A8C2E158cfC9dc70e872C"
+      abi: SupplyChain
+      startBlock: 38254946
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - DateAndLocationSet
+        - DateUnloaded
+      abis:
+        - name: SupplyChain
+          file: SupplyChain\abis\SupplyChain.json
+      eventHandlers:
+        - event: DateAndLocationSet(string,string,string,string)
+          handler: handleDateAndLocationSet
+        - event: DateUnloaded(string,string)
+          handler: handleDateUnloaded
+      file: SupplyChain\SupplyChain.wasm

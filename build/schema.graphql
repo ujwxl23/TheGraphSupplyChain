@@ -1,0 +1,19 @@
+type DateAndLocationSet @entity(immutable: true) {
+  id: Bytes!
+  depatureDate: String! # string
+  depaturePlace: String! # string
+  arrivalDate: String! # string
+  arrivalPlace: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DateUnloaded @entity(immutable: true) {
+  id: Bytes!
+  unloadedDate: String! # string
+  unloadedLocation: String! # string
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
